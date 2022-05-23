@@ -1,31 +1,44 @@
-import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-alert-dialog-android';
+import React from 'react';
+import { View, Button } from 'react-native';
+import { ButtonDialog, MessageDialog } from 'react-native-alert-dialog-android';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
+    <View>
+      <Button
+        onPress={() =>
+          MessageDialog({
+            menuTitle: 'Title',
+            message: 'Hello World',
+            negative: { title: 'Cancel', onPress: () => console.log('Cancel') },
+            positive: { title: 'OK', onPress: () => console.log('OK') },
+            neutral: {
+              title: 'Netural',
+              onPress: () => console.log('Netural'),
+            },
+          })
+        }
+        title={'Message Menu'}
+      />
+      <Button
+        onPress={() => {
+          ButtonDialog({
+            menuTitle: 'Title',
+            buttons: [
+              { title: 'Button 1', onPress: () => console.log('Button 1') },
+              { title: 'Button 2', onPress: () => console.log('Button 2') },
+              { title: 'Button 3', onPress: () => console.log('Button 3') },
+            ],
+            negative: { title: 'Cancel', onPress: () => console.log('Cancel') },
+            positive: { title: 'OK', onPress: () => console.log('OK') },
+            neutral: {
+              title: 'Neutral',
+              onPress: () => console.log('Neutral'),
+            },
+          });
+        }}
+        title="Button Menu"
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
