@@ -31,7 +31,7 @@ import { MessageDialog } from 'react-native-alarm-dialog';
     })
   }
   title={'Message Menu'}
-/>;
+/>
 ```
 
 # Button Dialog
@@ -59,7 +59,7 @@ import { ButtonDialog } from 'react-native-alarm-dialog';
     });
   }}
   title="Button Menu"
-/>;
+/>
 ```
 
 ## Contributing
