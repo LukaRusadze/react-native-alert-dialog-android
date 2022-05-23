@@ -1,6 +1,6 @@
 {
   "name": "react-native-alert-dialog-android",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Displays Android's native AlertDialog",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
